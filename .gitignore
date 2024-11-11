@@ -1,0 +1,6 @@
+# Editor backup files
+*.swp
+*.swo
+.*.swo
+.*.swp
+*~

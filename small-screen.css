@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  font-family: Times New Roman, sans-serif;
+  font-size: 13pt;
+  background-color: #ffddff;
+  background-image: url("sakura_bg.jpg");
+}
+
+a {
+  color: #008822;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #880088;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 42pt;
+};
+
+h2 {
+  font-size: 17pt;
+};
+
+/* BEGIN LAYOUT */
+#page {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#header-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 1em;
+  background-image: url("sakura_top.jpg");
+}
+
+#header {
+  font-family: The Courtney, Times New Roman;
+  float: left;
+  color: #ffffff;
+  text-align: center;
+}
+
+#nav {
+  clear:both;
+  text-align: center;
+  font-weight: bold;
+}
+
+#nav ul {
+  margin: 0;
+  list-style: none;
+  padding: 1em 0;
+}
+
+#nav ul li {
+  display: inline;
+  padding: 0 2em;
+}
+
+#nav ul li a {
+  color: #ffffff;
+}
+
+#nav ul li a:hover {
+  color: #ff88ff;
+}
+
+
+/* 2 column layout with a narrow right column. HTML is:
+ *
+ * <div class="columns-wrapper right-narrow">
+ *   <div class="colleft">
+ *   <div class="col1">   <- this is the left wide content area.
+ *   <div class="col2">   <- this is the right narrow content area.
+ *
+ * Layout design adapted from:
+ * http://matthewjamestaylor.com/blog/perfect-2-column-right-menu.htm
+ */
+
+.columns-wrapper {
+  position: relative;
+  clear: both;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+}
+
+.colleft {
+  position: relative;
+  float: left;
+  width: 100%;
+  color: #000000;
+}
+
+.right-narrow {
+}
+
+.right-narrow .colleft {
+  right: 33%;
+}
+
+.col1, .col2 {
+  float: left;
+  position: relative;
+  padding: 0 0 1em 0;
+  overflow: hidden;
+}
+
+.right-narrow .col1  {
+  width: 96%;
+  left: 35%;
+}
+
+.right-narrow .col2 {
+  width: 0%;
+  left: 39%;
+  visibility: hidden;
+  display: none;
+}
+
+
+.small-width {
+  @media (max-device-width 1940) {
+  color : #ffffff;
+  }
+}
+
+/* END LAYOUT */
+
+.browserupgrade {
+  font-weight: bold;
+  color: #990000;
+}
+
+.content {
+  margin: 1em 0;
+  padding: 0.4em 1em;
+  color: #000000;
+  line-height: 150%;
+}
+
+.content li {
+  padding: 0.25em 0;
+}
+
+.clickspan a {
+  display: block;
+  padding: 0.3em 0;
+}
+
+.bborder {
+  border-bottom: 1px solid #999;
+}

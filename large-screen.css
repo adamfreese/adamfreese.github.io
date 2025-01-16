@@ -3,7 +3,7 @@ body {
   padding: 0;
   border: 0;
   width: 100%;
-  font-family: Times New Roman, sans-serif;
+  font-family: Times New Roman, serif;
   font-size: 13pt;
   background-color: #ffddff;
   background-image: url("sakura_bg.jpg");
@@ -45,7 +45,7 @@ h2 {
 }
 
 #header {
-  font-family: The Courtney, Times New Roman;
+  font-family: The Courtney, Snell Roundhand, Segoe Script, Times New Roman, serif;
   float: left;
   color: #ffffff;
   padding-left: 2em;

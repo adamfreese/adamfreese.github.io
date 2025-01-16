@@ -4,7 +4,7 @@ body {
   border: 0;
   width: 100%;
   font-family: Times New Roman, serif;
-  font-size: 13pt;
+  font-size: 15pt;
   background-color: #ffddff;
   background-image: url("sakura_bg.jpg");
 }
@@ -138,7 +138,7 @@ h2 {
   margin: 1em 0;
   padding: 0.4em 1em;
   color: #000000;
-  line-height: 150%;
+  line-height: 125%;
 }
 
 .content li {

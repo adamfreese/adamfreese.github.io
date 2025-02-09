@@ -4,6 +4,7 @@ body {
   background-color: #ddffff;
   background-image: url("sakura.jpg");
   background-attachment: fixed;
+  background-size: cover;
   font-family: serif;
   font-size: 13pt;
 }

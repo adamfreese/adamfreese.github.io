@@ -20,15 +20,37 @@
   <a class="navheader" href="groups.html">Group Theory</a>
   <ul>
     <li><a href="rotations.html">Rotation Group</a></li>
-    <li><a href="lorentz.html">Lorentz Group</a></li>
   </ul>
-  <a class="navheader" href="music.html">Music</a>
+  <a class="navheader" href="misc.html">Misc</a>
   <ul>
+    <li><a href="physics.html">Physics links</a></li>
     <li><a href="music.html">Music</a></li>
   </ul>
 </div>
 <div class="content">
-<h2>Active and passive rotations</h2>
+<h1>The Rotation Group</h1>
+
+Some personal notes and musings about rotations in three dimensions.
+<br/>
+Portals to page sections:
+<ul class="outline">
+  <li><a href="#active">Active and passive rotations</a></li>
+  <li><a href="#rotmat">Rotation matrices</a></li>
+  <li><a href="#SO3">Three-dimensional rotations</a></li>
+  <li><a href="#tensors">Tensors</a></li>
+  <li><a href="#so3R">Three-dimensional rotation algebra</a></li>
+  <li><a href="#SU2">The special unitary group: \(\mathrm{SU}(2,\mathbb{C})\)</a></li>
+  <li><a href="#su2C">The special unitary algebra: \(\mathfrak{su}(2,\mathbb{C})\)</a></li>
+  <li><a href="#cover">\(\mathrm{SU}(2,\mathbb{C})\): double cover of \(\mathrm{SO}(3,\mathbb{R})\)</a></li>
+  <li><a href="#spinors">Spinors</a></li>
+  <li><a href="#rotors">Rotors and vectors as matrices</a></li>
+  <li><a href="#quaternions">Quaternions</a></li>
+  <li><a href="#bib">Further reading</a></li>
+</ul>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h2 id="active">Active and passive rotations</h2>
 
 <p>
 Transformations can be either active or passive.
@@ -95,7 +117,7 @@ assume all transformations are active unless I say otherwise.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Rotation matrices</h2>
+<h2 id="rotmat">Rotation matrices</h2>
 
 <p>
 A rotation of a vector in a plane can be represented using a matrix:
@@ -166,7 +188,7 @@ but it's possible to have groups with respect to other operations.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Three-dimensional rotations</h2>
+<h2 id="SO3">Three-dimensional rotations</h2>
 
 <p>
 In three dimensions, a vector is represented by a three-component
@@ -313,7 +335,7 @@ and the rotations can be differentiated with respect to \(\theta\).
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Tensors</h2>
+<h2 id="tensors">Tensors</h2>
 
 <p>
 Vectors aren't the only things that transform under rotations.
@@ -389,7 +411,7 @@ and a scalar is a rank-0 tensor
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Three-dimensional rotation algebra</h2>
+<h2 id="so3R">Three-dimensional rotation algebra</h2>
 
 <p>
 The <b> Lie algebra</b> of a Lie group
@@ -580,7 +602,7 @@ $$
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>The special unitary group: \(\mathrm{SU}(2,\mathbb{C})\)</h2>
+<h2 id="SU2">The special unitary group: \(\mathrm{SU}(2,\mathbb{C})\)</h2>
 
 <p>
 The special unitary group
@@ -675,7 +697,7 @@ to the rotation group.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>The special unitary algebra: \(\mathfrak{su}(2,\mathbb{C})\)</h2>
+<h2 id="su2C">The special unitary algebra: \(\mathfrak{su}(2,\mathbb{C})\)</h2>
 
 <p>
 The Lie algebra \(\mathfrak{su}(2,\mathbb{C})\)
@@ -785,7 +807,7 @@ to
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>\(\mathrm{SU}(2,\mathbb{C})\): double cover of \(\mathrm{SO}(3,\mathbb{R})\)</h2>
+<h2 id="cover">\(\mathrm{SU}(2,\mathbb{C})\): double cover of \(\mathrm{SO}(3,\mathbb{R})\)</h2>
 
 <p>
 I'm going to show that
@@ -923,7 +945,7 @@ I recommend playing around with this using a real belt if you never have before.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Spinors</h2>
+<h2 id="spinors">Spinors</h2>
 
 <p>
 <b>Spinors</b> are mathematical objects that transform under matrices in
@@ -1085,7 +1107,7 @@ I'll elaborate in the next section.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Matrix form for vectors</h2>
+<h2 id="rotors">Rotors and vectors as matrices</h2>
 
 <p>
 The fundamental representation of
@@ -1110,7 +1132,7 @@ $$
   \psi_b
   \,.
 $$
-What if we had an object \(T_{ab}\) with two indices&emdash;a
+What if we had an object \(T_{ab}\) with two indices&mdash;a
 sort of rank-2 tensor?
 It'd transform as:
 $$
@@ -1249,7 +1271,7 @@ being a double cover of
 This formulation of vector rotation is sometimes used in computer graphics,
 where the matrix \(R\) is known as a <b>rotor</b>.
 The formalism these computer folks use is sometimes called
-<b>geometric algebra</b> or <b>vanilla geometric algebra</b> (VGA),
+geometric algebra (or vanilla geometric algebra),
 which seems to have become trendy on the internet recently.
 Geometric algebra seems to be to be a rebranding of Clifford algebra,
 but with a lot more focus on intuition and visualization.
@@ -1257,10 +1279,217 @@ but with a lot more focus on intuition and visualization.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<h2>Further reading</h2>
+<h2 id="quaternions">Quaternions</h2>
 
-<b>TODO</b>
+<p>
+<b>Quaternions</b> are a four-dimensional number system with three
+square roots of \(-1\).
+They're kind of a generalization of complex numbers.
+Any quaternion can be written in the form:
+$$
+  \mathbf{q}
+  =
+  a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k}
+  \,,
+$$
+where \((\mathbf{i},\mathbf{j},\mathbf{k})\) are the square roots of \(-1\):
+$$
+  \mathbf{i}^2
+  =
+  \mathbf{j}^2
+  =
+  \mathbf{k}^2
+  =
+  -1
+  \,.
+$$
+Quaternion multiplication does not commute in general.
+In fact:
+$$
+\displaylines{
+  \mathbf{i}
+  \mathbf{j}
+  =
+  \mathbf{k}
+  \qquad
+  \qquad
+  \mathbf{j}
+  \mathbf{i}
+  =
+  -
+  \mathbf{k}
+  \\
+  \mathbf{j}
+  \mathbf{k}
+  =
+  \mathbf{i}
+  \qquad
+  \qquad
+  \mathbf{k}
+  \mathbf{j}
+  =
+  -
+  \mathbf{i}
+  \\
+  \mathbf{k}
+  \mathbf{i}
+  =
+  \mathbf{j}
+  \qquad
+  \qquad
+  \mathbf{i}
+  \mathbf{k}
+  =
+  -
+  \mathbf{j}
+}
+$$
+</p>
+
+<p>
+A few other properties of quaternions.
+Their conjugate is defined similarly to complex numbers:
+$$
+  (a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k})^*
+  =
+  a - b\mathbf{i} - c\mathbf{j} - d\mathbf{k}
+  \,.
+$$
+However, conjugation reverses the order of multiplication---similarly
+to the Hermitian conjugate for matrices:
+$$
+  ( \mathbf{q}_1 \mathbf{q}_2 )^*
+  =
+  \mathbf{q}_2^* \mathbf{q}_1^*
+  \,.
+$$
+The squared magnitude of a quaternion is given by:
+$$
+  |\mathbf{q}|^2
+  =
+  \mathbf{q}^* \mathbf{q}
+  =
+  \mathbf{q} \mathbf{q}^*
+  \,,
+$$
+so:
+$$
+  |a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k}|^2
+  =
+  a^2 + b^2 + c^2 + d^2
+  \,.
+$$
+</p>
+
+<p>
+Quaternions can be used to perform rotations.
+They're apparently the standard way to do rotations
+in computer graphics.
+The hint at their relevance can be seen in the commutation relations.
+If we define:
+$$
+\displaylines{
+  \lambda_1 = \frac{1}{2}\mathbf{i} \\
+  \lambda_2 = \frac{1}{2}\mathbf{j} \\
+  \lambda_3 = \frac{1}{2}\mathbf{k}
+}
+$$
+then the commutation relations are:
+$$
+  [\lambda_a,\lambda_b] = \epsilon_{abc}\lambda_c
+  \,.
+$$
+Compare to the commutation relation for the rotation generators.
+It's almost the same, except for a missing factor \(i\).
+In fact:
+$$
+  [ (-iJ_a), (-iJ_b) ]
+  =
+  \epsilon_{abc} (-i J_c)
+  \,,
+$$
+so the quaternions would be isomorphic to the rotation group generators
+if we <i>did not</i> pull out the factor \(-i\) earlier.
+</p>
+
+<p>
+So, the purely imaginary quaternions&mdash;those of the form
+\(b\mathbf{i}+c\mathbf{j}+d\mathbf{k}\)&mdash;are isomorphic to the
+algebra \(\mathfrak{so}(3,\mathbb{R})\).
+Exponentiating the quaternions accordingly gives a rotation group.
+Actually, it gives a group isomorphic to
+\(\mathrm{SU}(2,\mathbb{C})\) specifically.
+</p>
+
+<p>
+The group we get by exponentiating the quaternions is
+\(U(1,\mathbb{H})\):
+the group of unitary quaternions.
+\(\mathbb{H}\) is the standard symbol for the quaternions
+(the H is for Hamilton).
+Unitary here just means the quaternion's inverse is its conjugate,
+so these are also the quaternions of unit magnitude.
+It's pretty straightforward to see how the set of unit quaternions
+is homeomorphic to \(S^3\),
+and how as a group they're isomorphic to
+\(\mathrm{SU}(2,\mathbb{C})\).
+</p>
+
+<p>
+Rotors can all be written as unit quaternions.
+Moreover, by replacing the Pauli matrices in the matrix
+representation of vectors by unit quaternions:
+$$
+\displaylines{
+  \sigma_1 \rightarrow \mathbf{i} \\
+  \sigma_2 \rightarrow \mathbf{j} \\
+  \sigma_3 \rightarrow \mathbf{k}
+}
+$$
+vectors can also be written as purely imaginary quaternions:
+$$
+  V = x\mathbf{i} + y\mathbf{j} + c\mathbf{k}
+  \,.
+$$
+Thus the rotor formula:
+$$
+  V \mapsto R V R^{-1}
+$$
+can be applied using just quaternion multiplication.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h2 id="bib">Further reading</h2>
+
+<h3>Books</h3>
+
+<ul>
+  <li>Robert Gilmore:
+    <a
+      href="https://www.google.com/books/edition/Lie_Groups_Lie_Algebras_and_Some_of_Thei/ePMX38H4DD4C"
+      >Lie Groups, Lie Algebras, and Some of Their Applications</a></li>
+</ul>
+
+<h3>YouTube videos</h3>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=rC0jAICfNwc">Tibees:
+      Dirac's Belt Trick demonstrated with long hair</a></li>
+  <li><a href="https://www.youtube.com/watch?v=zjMuIxRvygQ">3Blue1Brown:
+      Quaternions and 3d rotation, explained interactively</a></li>
+  <li><a href="https://www.youtube.com/watch?v=2AKt6adG_OI">sudgylacmoe:
+      An Overview of the Operations in Geometric Algebra</a></li>
+  <li><a href="https://www.youtube.com/watch?v=htYh-Tq7ZBI">Freya Holmér:
+      Why can't you multiply vectors?</a> (video about geometric algebra)</li>
+  <li><a href="https://www.youtube.com/watch?v=CdwxpSInhvU">Kathy Loves Physics &amp; History:
+      Quaternions are Amazing and so is William Rowan Hamilton!</a></li>
+</ul>
 </div> <!-- End content -->
 </div> <!-- End wrapper -->
+<br/>
+<div class="foot">
+  Content copyright 2025 Adam Freese, all rights reserved
+</div>
 </body>
 </html>

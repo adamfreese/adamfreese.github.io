@@ -32,6 +32,14 @@ a:hover {
   position: relative;
 }
 
+.foot {
+  float: bottom;
+  text-align: center;
+  background-color: rgba(255, 222, 255, 0.88);
+  width: 98.5%;
+  font-size: 14pt;
+}
+
 /* Navigation bar */
 
 .navbar  {
@@ -67,7 +75,7 @@ a:hover.navheader {
 
 .content {
   background-color: rgba(255, 222, 255, 0.88);
-  left:  17px;
+  left:  1.5%;
   right: 17px;
   float: none;
   flex-grow: 100;
@@ -79,5 +87,11 @@ a:hover.navheader {
 }
 
 .content a {
-  font-weight: bold;
+  font-weight: medium;
+}
+
+ul.outline {
+  list-style-type: "\1F338";
+  margin-left: 34px;
+  margin-top:   0px;
 }

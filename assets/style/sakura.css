@@ -1,0 +1,97 @@
+/* Global style choices */
+
+body {
+  background-color: #ddffff;
+  background-image: url("sakura.jpg");
+  background-attachment: fixed;
+  font-family: serif;
+  font-size: 13pt;
+}
+
+a {
+  color: #007711;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #880088;
+  text-decoration: underline;
+}
+
+/* Overall layout */
+
+.wrapper {
+  position: relative;
+  float: center;
+  width: 97%;
+  display: flex;
+}
+
+.navbar, .content {
+  float: left;
+  position: relative;
+}
+
+.foot {
+  float: bottom;
+  text-align: center;
+  background-color: rgba(255, 222, 255, 0.88);
+  width: 98.5%;
+  font-size: 14pt;
+}
+
+/* Navigation bar */
+
+.navbar  {
+  min-width: 300px;
+  left: 0%;
+  background-color: rgba(255, 222, 255, 0.88);
+  /*flex-grow: 1;*/
+}
+
+.navbar ul {
+  list-style-type: "\1F338";
+  margin:  17px;
+  padding: 1px;
+}
+
+a.navheader {
+  display: block;
+  background: #ddaadd;
+  text-align: center;
+  padding: 3px 0;
+  border-top:    1px solid #440044;
+  border-bottom: 1px solid #440044;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover.navheader {
+  text-decoration: none;
+  background: #aaddaa;
+}
+
+/* Content */
+
+.content {
+  background-color: rgba(255, 222, 255, 0.88);
+  left:  1.5%;
+  right: 17px;
+  float: none;
+  flex-grow: 100;
+  padding: 1em;
+}
+
+.content p {
+  text-indent: 1em;
+}
+
+.content a {
+  font-weight: medium;
+}
+
+ul.outline {
+  list-style-type: "\1F338";
+  margin-left: 34px;
+  margin-top:   0px;
+}

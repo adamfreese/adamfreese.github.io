@@ -1,0 +1,41 @@
+title: Adam Freese's personal website
+email: adamfreese@proton.me
+description: >- # this means to ignore newlines until "baseurl:"
+  The personal website of Adam Frese, with random pages on physics,
+  math and music.
+baseurl: "" # left blank
+url: "https://adamfreese.org"
+github_username: adamfreese
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# default key-value pairs in the front matter for each category
+defaults:
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: "post"
+      author: "QuantOm"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# SCSS compiler config
+sass:
+  style: compressed
+
+# things not to include in the `_site` folder
+exclude:
+  - ".sass-cache"
+  - ".jekyll-cache"
+  - "gemfiles"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules"
+  - "README.md"

@@ -1,20 +1,21 @@
 /* Global style choices */
 
 body {
-  background-color: #ddffff;
+  background-color: #ffffff;
   background-image: url("sakura.jpg");
   background-attachment: fixed;
-  font-family: serif;
+  font-family: DejaVuSerif, Edwin Roman, serif;
   font-size: 13pt;
 }
 
 a {
-  color: #007711;
+  color: #006900;
+  font-weight: bold;
   text-decoration: none;
 }
 
 a:hover {
-  color: #880088;
+  color: #920092;
   text-decoration: underline;
 }
 
@@ -35,7 +36,7 @@ a:hover {
 .foot {
   float: bottom;
   text-align: center;
-  background-color: rgba(255, 222, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.88);
   width: 98.5%;
   font-size: 14pt;
 }
@@ -45,7 +46,7 @@ a:hover {
 .navbar  {
   min-width: 300px;
   left: 0%;
-  background-color: rgba(255, 222, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.88);
   /*flex-grow: 1;*/
 }
 
@@ -57,11 +58,12 @@ a:hover {
 
 a.navheader {
   display: block;
-  background: #ddaadd;
+  background: #006900;
+  color: #ffffff;
   text-align: center;
   padding: 3px 0;
-  border-top:    1px solid #440044;
-  border-bottom: 1px solid #440044;
+  border-top:    1px solid #004200;
+  border-bottom: 1px solid #004200;
   font-weight: bold;
   text-decoration: none;
 }
@@ -69,12 +71,13 @@ a.navheader {
 a:hover.navheader {
   text-decoration: none;
   background: #aaddaa;
+  color: #420042;
 }
 
 /* Content */
 
 .content {
-  background-color: rgba(255, 222, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.88);
   left:  1.5%;
   right: 17px;
   float: none;

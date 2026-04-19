@@ -19,7 +19,7 @@ defaults:
       type: "news"
     values:
       layout: "post"
-      author: "QuantOm"
+      author: "Adam Freese"
   - scope:
       path: ""
       type: "pages"

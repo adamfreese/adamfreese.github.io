@@ -1,11 +1,47 @@
 ---
 layout: default
 ---
-Welcome to my personal website!
-The site is currently under construction.
-Since it's registered under a .org domain, I'll aim for this website to
-be educational.
-My main interests are physics
-(mainly quantum mechanics and quantum field theory)
-and music (especially microtonal and Xenharmonic music),
-so I'll make a point to provide educational resources on both these topics.
+This is the personal website and blog of Adam Freese.
+I'm a theoretical physicist and amateur microtonal musician.
+I will be using this website very infrequently to post musings
+about random physics-, music- or math-related things
+as they strike my fancy.
+
+An ulterior motive for posting what and when I do
+will be to have an easily-accessible resource to double-check
+sign and factor \(i\) conventions.
+
+Previews of the latest pages can be found below.
+
+{% assign collections = site.posts | sort: "date" | reverse %}
+{% for posts in collections limit:4 %}
+
+<br/>
+<hr/>
+<br/>
+
+<!-- layout in one column: only one card -->
+<div class="col">
+
+  <!-- layout within one card -->
+  <div class="block">
+
+    <!-- date in the header -->
+    <div class="date">{{ posts.date | date: "%B %d, %Y" }}</div>
+
+    <!-- title -->
+    <div class="heading">
+      <a href="{{ posts.url }}">{{ posts.title }}</a>
+    </div>
+
+    <!-- excerpt -->
+    <div class="contentpreview">
+      {{ posts.content |
+          remove: "<p>" | remove: "</p>" | truncatewords: 420 }}
+      <a href="{{ posts.url }}"> &lt;open&gt; </a>
+    </div>
+
+  </div>
+</div>
+
+{% endfor %}

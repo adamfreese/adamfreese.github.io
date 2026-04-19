@@ -12,6 +12,13 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# grouping different types of posts
+collections:
+  # folder _posts
+  posts:
+    output: true
+    permalink: /posts/:name
+
 # default key-value pairs in the front matter for each category
 defaults:
   - scope:

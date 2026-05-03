@@ -36,8 +36,7 @@ Previews of the latest pages can be found below.
 
     <!-- excerpt -->
     <div class="contentpreview">
-      {{ posts.content |
-          remove: "<p>" | remove: "</p>" | truncatewords: 420 }}
+      {{ posts.content | truncatewords: 420 }}
       <a href="{{ posts.url }}"> &lt;open&gt; </a>
     </div>
 

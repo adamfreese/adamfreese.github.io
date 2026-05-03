@@ -1,0 +1,1265 @@
+---
+layout: post
+title: Getting the Lorentz algebra through the Clifford algebra
+---
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<p>
+The <b>Lorentz group</b> is a group of matrix transformations on four-vectors
+that preserve their norm under the Minkowski spacetime metric.
+A four-vector can be represented as a list of four components:
+$$
+  V
+  =
+  \begin{bmatrix}
+  V^0 \\ V^1 \\ V^2 \\ V^3
+  \end{bmatrix}
+  \,.
+$$
+We typically use upper indices for four-vector components.
+The 0th component is considered a temporal component
+since it is a time duration in a spacetime displacement,
+and the other components are considered spatial.
+The Minkowski spacetime metric is a \(4\times4\) matrix:
+$$
+  g
+  =
+  \begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 &-1 & 0 & 0 \\
+    0 & 0 &-1 & 0 \\
+    0 & 0 & 0 &-1
+  \end{bmatrix}
+  \,.
+$$
+The norm of the four-vector is given by
+$$
+  || V ||
+  =
+  V^T g V
+  =
+  (V^0)^2
+  -
+  (V^1)^2
+  -
+  (V^2)^2
+  -
+  (V^3)^2
+  \,.
+$$
+This has important physical interpretations
+(depending on the four-vector in question),
+and matrix transformations on four-vectors that preserve
+this norm are extremely important.
+A matrix transformation
+$$
+  V
+  \mapsto
+  V'
+  =
+  \Lambda V
+$$
+preserves this norm if
+$$
+  \Lambda^T
+  g
+  \Lambda
+  =
+  g
+  \,.
+$$
+So the Lorentz group is the group
+of matrix transformations that preserve the metric—or
+an <b>isometry group</b>.
+(<i>iso</i>=same, <i>metry</i>=metric.)
+If \(g\) were the identity matrix
+(or any constant times identity),
+we'd have the four-dimensional orthogonal group.
+By analogy, the Lorentz group is sometimes called the
+pseudo-orthogonal group on three space and one time dimensions,
+and is often written \(\mathrm{O}(3,1,\mathbb{R})\).
+</p>
+
+<p>
+As a manifold, the Lorentz group consists of four connected components.
+These respectively contain the identity,
+parity reversal
+$$
+  P
+  :
+  (ct,x,y,z)
+  \mapsto
+  (ct,-x,-y,-z)
+  \,,
+$$
+time reversal
+$$
+  T
+  :
+  (ct,x,y,z)
+  \mapsto
+  (-ct,x,y,z)
+$$
+and the composition of \(PT\).
+As usual, a nice way of characterizing the group
+and deriving its representations
+is to construct the algebra of generators
+for the part connected to identity.
+This note will be about a rather indirect way of deriving the generator
+algebra: by going through the <b>Clifford algebra</b>.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h2 id="clifford3d">Clifford algebra in 3D</h2>
+
+<p>
+As a warm-up, I'll first show how the 3D rotation group can be built using
+the 3D Clifford algebra.
+The algebra can be called \(\mathrm{Cl}_3(\mathbb{R})\).
+Some folks refer to the 3D Clifford algebra as
+geometric algebra
+(or vanilla geometric algebra).
+It's the subject of some lovely YouTube videos;
+see
+<a href="https://www.youtube.com/watch?v=2AKt6adG_OI">sudgylacmoe:
+  An Overview of the Operations in Geometric Algebra</a>
+and
+<a href="https://www.youtube.com/watch?v=htYh-Tq7ZBI">Freya Holmér:
+  Why can't you multiply vectors?</a>.
+(I especially recommend the latter!)
+</p>
+
+<p>
+The basic idea is that you treat vectors as algebraic objects that
+you can simply multiply together.
+The product of two vectors \(V\) and \(U\) is defined so that it
+reduces to the usual dot product when \(V=U\):
+$$
+  V^2
+  \equiv
+  VV
+  =
+  V\cdot V
+  \,.
+$$
+If we define unit vectors \(e_1, e_2, e_3\), then:
+$$
+\displaylines{
+  V
+  =
+  V_1 e_1 + V_2 e_2 + V_3 e_3
+  \\
+  V^2
+  =
+  V_1^2 e_1^2 + V_2^2 e_2^2 + V_3^2 e_3^2
+  +
+  (e_1 e_2 + e_2 e_1) V_1 V_2
+  +
+  (e_2 e_3 + e_3 e_2) V_2 V_3
+  +
+  (e_3 e_1 + e_1 e_3) V_3 V_1
+  \,.
+}
+$$
+By necessity, then, we require:
+$$
+  e_1^2 = e_2^2 = e_3^2 = 1
+  \qquad
+  e_1 e_2 = -e_2 e_1
+  \qquad
+  e_2 e_3 = -e_3 e_2
+  \qquad
+  e_3 e_1 = -e_1 e_3
+  \,.
+$$
+These requirements can be summed up in an
+<b>anticommutation rule</b>:
+$$
+  \{e_a, e_b\}
+  \equiv
+  e_a e_b
+  +
+  e_b e_a
+  =
+  2 \delta_{ab}
+  \,.
+$$
+Under vector multiplication,
+basis vectors anticommute—you get an negative sign when you swap
+the order of multiplication—unless they're one and the same basis vector.
+</p>
+
+<p>
+Now, when you multiply two different vectors,
+you no longer just get a dot product:
+$$
+  UV
+  =
+  U\cdot V
+  +
+  U \wedge V
+  \,.
+$$
+The second, extra term is called a wedge product.
+Since it's missing when \(U=V\),
+the wedge product of a vector with itself must be zero.
+This implies it's antisymmetric:
+$$
+  (U+V) \wedge (U+V)
+  =
+  U \wedge V
+  +
+  V \wedge U
+  =
+  0
+  \,.
+$$
+The wedge product is a new kind of object:
+it's not really a vector
+(since it isn't a linear sum of basis vectors),
+and it's not a scalar.
+The set of all wedge products is spanned by
+products of dissimilar basis vectors,
+namely
+$$
+\displaylines{
+  f_1 = e_2 e_3
+  \qquad
+  f_2 = e_3 e_1
+  \qquad
+  f_3 = e_1 e_2
+  \\
+  f_{a} = \frac{1}{2} \epsilon_{abc} e_b e_c
+  \,.
+}
+$$
+Since they are specified by dissimilar vectors,
+they are called bivectors.
+Although bivectors are three-dimensional,
+they are different from vectors.
+They do not transform the same way under parity reversal.
+Under parity,
+the basis vectors all transform as \(e_a \mapsto -e_a\).
+The basis bivectors, being a product of two basis vectors,
+remain invariant under parity.
+While vectors specify a direction in space,
+bivectors specify a plane.
+</p>
+
+<p>
+Our algebra is not complete yet.
+Bivectors can be multiplied together,
+and multiplied by vectors.
+But there's a limit to the number of objects we can build.
+In fact, there's just one more basis object we can add—the
+unit trivector:
+$$
+  e_5
+  =
+  e_1 e_2 e_3
+  \,.
+$$
+I'll explain why I call this \(e_5\) later.
+Since it's described by all three unit vectors,
+it can be thought of as describing a volume element.
+(See Freya Holmér's video for a really nice explanation.)
+A neat thing about the trivector, by the way,
+is that it lets us rewrite the basis bivectors as:
+$$
+  f_a
+  =
+  e_a e_5
+  \,.
+$$
+Another really neat thing is that
+$$
+  e_5^2
+  =
+  -1
+  \,.
+$$
+The trivector behaves something like an imaginary unit!
+It also commutes with all the basis vectors \(e_a\),
+so the bivectors <i>also</i> square to \(-1\):
+$$
+  (e_a e_5)^2
+  =
+  -
+  1
+  \,.
+$$
+The bivectors also mutually anticommute,
+and in fact are isomorphic to the quaternions.
+I won't dwell on this;
+I again recommend Freya Holmér's video for more info.
+</p>
+
+<p>
+Every element of our algebra is then a linear sum—with
+scalar coefficients—of the eight basis objects:
+</p>
+
+<table>
+  <tr class="header">
+    <th>
+      Basis elements
+    </th>
+    <th>
+      Object type
+    </th>
+    <th>
+      Interpretation
+    </th>
+    <th>
+      Dimension
+    </th>
+  </tr>
+  <tr>
+    <td>
+      \(1\)
+    </td>
+    <td>
+      Scalar
+    </td>
+    <td>
+      Point
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(e_a\)
+    </td>
+    <td>
+      Vector
+    </td>
+    <td>
+      Line
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(e_a e_5\)
+    </td>
+    <td>
+      Bivector
+    </td>
+    <td>
+      Plane
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(e_5\)
+    </td>
+    <td>
+      Trivector
+    </td>
+    <td>
+      Volume
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<p>
+Why is this list complete?
+There are only so many unique strings of basis vectors you can form
+when you're allowed to swap dissimilar basis vectors
+(by the anticommutation rule)
+and annihilate similar basis vectors
+(by \(e_a^2=1\)).
+You can't get a string of more than three basis vectors.
+For a string of \(n\) basis vectors,
+you have \(3\)-choose-\(n\) combinations.
+So that's one scalar (\(n=0\)),
+three vectors (\(n=1\)),
+three bivectors (\(n=2\)),
+and one trivector (\(n=3\)).
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="rotations">The 3D rotation group</h3>
+
+<p>
+So, let's get to rotations.
+Intuitively, rotations are transformations of spatial objects
+that preserve their geometry.
+This includes the norms of vectors and the angles between them.
+It also includes which planes are generated by which combinations
+of vectors (although the planes and vectors are all rotated).
+This preservation of geometry means,
+in the Clifford algebra formalism,
+the preservation of multiplication rules:
+$$
+  T(xy)
+  =
+  T(x)
+  T(y)
+  \,.
+$$
+One way to achieve this
+(though not the only way)
+is for the transformation to take the form
+$$
+  T(x)
+  =
+  R x R^{-1}
+$$
+for some invertible Clifford algebra object \(R\),
+which represents the particular rotation.
+This is called the rotor formula,
+and \(R\) is called a rotor.
+So scalars, vectors, bivectors and trivectors
+are all transformed according to the same rule.
+In fact, scalars remain invariant,
+since \(R\) or \(R^{-1}\) can be moved past the scalar:
+$$
+  T(s)
+  =
+  R s R^{-1}
+  =
+  R R^{-1} s
+  =
+  s
+  \,.
+$$
+And so the square of any vector—and thus its norm—remains invariant.
+</p>
+
+<p>
+There's actually one more requirement to make on rotations.
+Rotations must map vectors to vectors,
+and not to other objects such as bivectors.
+While this might seem too obvious to state,
+this actually limits the allowed objects \(R\).
+</p>
+
+<p>
+So our aim is to build a group of invertible Clifford algebra objects \(R\)
+for which \(R x R^{-1}\) is a vector whenever \(x\) is a vector.
+How do we do that?
+Well, we start by considering transformations close to identity:
+$$
+  R
+  =
+  e^{-i \theta_a J_a}
+  \approx
+  1
+  -
+  i \theta_a J_a
+  \,,
+$$
+where \(\theta_a\) are a collection of small parameters
+and \(J_a\) are the rotation generators.
+Under such a transformation,
+a vector \(V\) transforms as
+$$
+  V
+  \mapsto
+  V'
+  =
+  V
+  -
+  i\theta_a [J_a, V]
+  \,.
+$$
+This is where the requirement that \(R\) maps vectors to vectors comes in.
+\(V\) and \(V'\) must both be vectors,
+and therefore the commutator \([J_a,V]\) must also be a vector.
+The elements we can build \(J_a\) from are listed in the table above.
+We can work out the relevant commutation rules to be:
+$$
+\displaylines{
+  [1, e_b]
+  =
+  0
+  \\
+  [e_a, e_b]
+  =
+  2 \epsilon_{abc} e_c e_5
+  \\
+  [e_a e_5, e_b]
+  =
+  -
+  2 \epsilon_{abc} e_c
+  \\
+  [e_5, e_b]
+  =
+  0
+  \,.
+}
+$$
+Now, anything that commutes with \(e_b\) gives \(V'=V\)
+in the rotor formula, so cannot be a generator.
+\(e_a\) cannot be a generator, because it gives a bivector.
+Thus, the bivectors are generators of rotations:
+$$
+  J_a
+  \propto
+  e_a e_5
+  \,.
+$$
+This makes some amount of sense:
+bivectors represent planes,
+and rotations occur in planes.
+Again, see Freya Holmér's video for an especially nice explanation.
+We can also figure out the proportionality constant
+since we already know the rotation algebra:
+$$
+  [J_a, J_b]
+  =
+  i
+  \epsilon_{abc} J_c
+  \,.
+$$
+Being very careful about minus signs from \(e_5^2\)
+and \(i^2\), you can show that:
+$$
+  \big[ (-\tfrac{1}{2} i e_a e_5), (-\tfrac{1}{2} i e_b e_5) \big]
+  =
+  i \epsilon_{abc}
+  \big(-\tfrac{1}{2} i e_c e_5\big)
+$$
+so
+$$
+  J_a
+  =
+  -
+  \tfrac{1}{2}
+  i e_a e_5
+  \,.
+$$
+So, we've got generators of the rotation group
+from the 3D Clifford algebra.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="3drep">Explicit matrix representation</h3>
+
+<p>
+Here's an explicit matrix representation
+of the 3D Clifford algebra:
+$$
+\displaylines{
+  1 = 1 \\
+  e_a = \sigma_a \\
+  e_a e_5 = i \sigma_a \\
+  e_5 = i
+}
+$$
+where \(\sigma_a\) are the Pauli matrices:
+$$
+\displaylines{
+  \sigma_1
+  =
+  \begin{bmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{bmatrix}
+  \\
+  \sigma_2
+  =
+  \begin{bmatrix}
+    0 & -i \\
+    i & 0
+  \end{bmatrix}
+  \\
+  \sigma_3
+  =
+  \begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+  \end{bmatrix}
+  \,,
+}
+$$
+In this representation, we have
+$$
+  J_a
+  =
+  \frac{\sigma_a}{2}
+  \,,
+$$
+which is the usual formula in the fundamental rep of
+\(\mathfrak{su}(2,\mathbb{C})\).
+</p>
+
+<p>
+In this representation, \(e_5=i\) really is the imaginary unit.
+Regarding the isomorphism between bivectors and quaternions,
+however, the mapping is actually
+$$
+  \mathbf{i}
+  =
+  -e_1 e_5
+  =
+  - i\sigma_1
+  \qquad
+  \mathbf{j}
+  =
+  -e_2 e_5
+  =
+  - i\sigma_2
+  \qquad
+  \mathbf{k}
+  =
+  -e_3 e_5
+  =
+  - i\sigma_3
+  \,.
+$$
+That minus sign is needed to ensure the last part of the famous
+$$
+  \mathbf{i}^2
+  =
+  \mathbf{j}^2
+  =
+  \mathbf{k}^2
+  =
+  \mathbf{i}
+  \mathbf{j}
+  \mathbf{k}
+  =
+  -1
+$$
+is obeyed.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="3dparity">Parity reversal</h3>
+
+<p>
+I mentioned that \(x \mapsto R x R^{-1}\) is not the only way to preserve
+the geometry.
+Complex conjugation also preserves multiplication rules:
+$$
+  (xy)^*
+  =
+  x^* y^*
+  \,.
+$$
+It's a peculiar transformation to be sure.
+Technically it's only well-defined for a particular matrix representation
+of the Clifford algebra,
+rather than for \(\mathrm{Cl}_3(\mathbb{R})\) in the abstract.
+</p>
+
+<p>
+In the matrix representation above,
+\(1\), \(e_1\), \(e_3\) and \(e_2 e_5\) are real,
+while
+\(e_5\), \(e_1e_5\), \(e_3e_5\) and \(e_2\) are imaginary.
+Complex conjugation then flips the sign of the \(y\)-direction basis vector,
+as well as the bivectors normal to the \(x\)- and \(z\)-axes
+and the volume basis element.
+The physical interpretation of this transformation is mirror reflection
+across the \(xz\) plane.
+</p>
+
+<p>
+If the mirror reflection is accompanied by a 180 degree rotation
+in the \(xz\) plane, then the signs of all basis vectors will be flipped.
+This is the parity reversal transformation.
+The rotor for this transformation is \(\pm \sigma_2\),
+so the parity transformation (in this specific matrix representation) is:
+$$
+  P(x)
+  =
+  \sigma_2 x^* \sigma_2
+  \,.
+$$
+You can check that this transformation flips the signs of all vectors
+and the trivector,
+but leaves scalar and bivectors invariant.
+</p>
+
+<p>
+To be sure, parity reversal and mirror reflections are not rotations.
+The rotor formula \(x \mapsto R x R^{-1}\) does exhaustively describe
+the rotation group.
+The parity transformations that the rotor formula leaves out are isometries,
+however.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h2 id="clifford4d">Clifford algebra in 4D</h2>
+
+<p>
+The Clifford algebra
+\(\mathrm{Cl}_{1,3}\)
+is defined in 4D spacetime.
+The \(1,3\) subscript here signifies 1 time and 3 space dimensions.
+A four-vector \(V\) is a sum of components \(V^\mu\)
+multiplied by basis vectors \(\gamma_\mu\):
+$$
+  V
+  =
+  V^\mu \gamma_\mu
+  \,.
+$$
+Just as in 3D, we can simply multiply vectors together,
+with the rules ultimately supervening on the multiplication rules
+for the basis vectors \(\gamma_\mu\).
+</p>
+
+<p>
+A quick review about the upper and lower indices.
+The basis vectors have a lower index,
+and the vector components have an upper index.
+A vector can be transformed (e.g. by a Lorentz transformation)
+either by transforming its components:
+$$
+  V^\mu
+  \mapsto
+  V'^\mu
+  =
+  \Lambda^\mu_{\phantom{\mu}\nu}
+  V^\nu
+$$
+or by transforming the basis vectors:
+$$
+  \gamma_\mu
+  \mapsto
+  \gamma'_\mu
+  =
+  \Lambda^\nu_{\phantom{\mu}\mu}
+  \gamma_\nu
+  \,.
+$$
+Note that this rule differs,
+since the first index of the transformation matrix
+is contracted with the basis vector.
+In either case we get
+$$
+  V'
+  =
+  \Lambda^{\mu}_{\phantom{\mu}\nu} V^\nu \gamma_\mu
+  \,,
+$$
+so these are equivalent.
+We say that the basis vectors
+(and anything that transforms the same way)
+transform <b>covariantly</b>,
+and the components transform <b>contravariantly</b>.
+More broadly:
+lower index = covariant,
+and upper index = contravariant.
+</p>
+
+<p>
+Just as in the 3D case,
+we want vector multiplication to just give the dot product
+when we multiply a vector by itself.
+In this case, the dot product is defined though the Minkowski metric:
+$$
+  V\cdot U
+  =
+  g_{\mu\nu} V^\mu U^\nu
+  \,.
+$$
+The product of a vector with itself is:
+$$
+  V^2
+  =
+  V^\mu V^\nu \gamma_\mu \gamma_\nu
+  \,.
+$$
+I could write out all sixteen terms like in the 3D case,
+but a faster and more compact option is to note
+that since \(V^\mu V^\nu\) is symmetric when \(\mu\)
+and \(\nu\) are swapped,
+$$
+  V^2
+  =
+  \frac{1}{2}
+  V^\mu V^\nu
+  \big( \gamma_\mu \gamma_\nu + \gamma_\nu \gamma_\mu \big)
+  =
+  \frac{1}{2}
+  V^\mu V^\nu
+  \{ \gamma_\mu, \gamma_\nu \}
+  \,.
+$$
+Requiring \(V^2 = V\cdot V\) then means:
+$$
+  \{ \gamma_\mu, \gamma_\nu \}
+  =
+  2
+  g_{\mu\nu}
+  \,.
+$$
+This is the fundamental anticommutation rule for the 4D Clifford algebra.
+</p>
+
+<p>
+Just as in the 3D case, we can build more basis elements by stringing
+the basis vectors \(\gamma_\mu\) together.
+There is of course 1 basis scalar and the 4 basis vectors.
+There are 6 independent bivectors—4 choose 2.
+Then there are 4 independent trivectors,
+and 1 quadvector.
+So there are 16 basis elements altogether.
+The conventional names for the basis elements
+(as in the textbooks by Bjorken and Drell,
+or Itzykson and Zuber)
+are below:
+</p>
+<table>
+  <tr class="header">
+    <th>
+      Basis elements
+    </th>
+    <th>
+      Object type
+    </th>
+    <th>
+      Interpretation
+    </th>
+    <th>
+      Dimension
+    </th>
+  </tr>
+  <tr>
+    <td>
+      \(1\)
+    </td>
+    <td>
+      Scalar
+    </td>
+    <td>
+      Point
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(\gamma_\mu\)
+    </td>
+    <td>
+      Vector
+    </td>
+    <td>
+      Line
+    </td>
+    <td>
+      4
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(\sigma_{\mu\nu} = \frac{i}{2} [\gamma_\mu, \gamma_\nu]\)
+    </td>
+    <td>
+      Bivector
+    </td>
+    <td>
+      Plane
+    </td>
+    <td>
+      6
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(\gamma_\mu \gamma_5\)
+    </td>
+    <td>
+      Trivector
+    </td>
+    <td>
+      3D hypersurface
+    </td>
+    <td>
+      4
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \(\gamma_5 = -i\gamma_0 \gamma_1 \gamma_2 \gamma_3\)
+    </td>
+    <td>
+      Quadvector
+    </td>
+    <td>
+      4D hypervolume
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<p>
+The unit hypervolume element is called \(\gamma_5\) basically
+as a historical artifact.
+Way back in the day,
+many physicists used a Euclidean metric when dealing with spacetime,
+but made the temporal component—which back then was called the 4th instead of
+the 0th component—imaginary.
+Hence one would have a \(\gamma_4\) as a basis vector instead of
+\(\gamma_0\).
+\(5\) was just the next available label.
+It's because \(\gamma_5\) is the hypervolume element in the 4D Clifford algebra
+that I called the 3D volume element \(e_5\).
+I'm kinda just habituated to thinking of a subscript 5 that way.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="4drotation">Lorentz transformations</h3>
+
+<p>
+So let's get to Lorentz transformations.
+We'll consider transformations analogous to the 3D rotor formula:
+$$
+  \gamma_\mu
+  \mapsto
+  L \gamma_\mu L^{-1}
+$$
+for some matrix \(L\), representing the particular Lorentz transformation.
+We should be able to build \(L\) from the Clifford algebra.
+An \(L\) close to identity can be expressed in terms of generators as:
+$$
+  L
+  =
+  e^{-i \omega_a \lambda_a}
+  \approx
+  1
+  -
+  i
+  \omega_a \lambda_a
+$$
+where \(\omega_a\) are a collection of small parameters
+and \(\lambda_a\) are the Lorentz group generators.
+The basis vectors thus transform,
+under an \(L\) close to identity, as:
+$$
+  \gamma_\rho
+  \mapsto
+  \gamma_\rho'
+  =
+  \gamma_\rho
+  -
+  i \omega_a
+  [\lambda_a, \gamma_\rho]
+  \,.
+$$
+Since \(\gamma_\rho\) and \(\gamma'_\rho\) are both vectors,
+so is \([\lambda_a, \gamma_\rho]\).
+This is what will allow us to determine the generators.
+</p>
+
+<p>
+The following commutation rules can be eked out, with a little effort,
+from the basic anticommutation rule and multiplication rules:
+$$
+\displaylines{
+  [1, \gamma_\rho]
+  =
+  0
+  \\
+  [\gamma_\mu , \gamma_\rho]
+  =
+  -2i \sigma_{\mu\rho}
+  \\
+  [\sigma_{\mu\nu} , \gamma_\rho]
+  =
+  2 i \big(
+  g_{\nu\rho} \gamma_\mu - g_{\mu\rho} \gamma_\nu
+  \big)
+  \\
+  [\gamma_\mu \gamma_5 , \gamma_\rho]
+  =
+  -
+  2
+  g_{\mu\rho} \gamma_5
+  \\
+  [\gamma_5 , \gamma_\rho]
+  =
+  -2 \gamma_\rho \gamma_5
+  \,.
+}
+$$
+The rule for \([1,\gamma_\rho]\) is trivial, so \(1\) does not
+generate any non-trivial transformations.
+Otherwise,
+the only of these rules that produces a vector on the right-hand side
+is the rule for \( [\sigma_{\mu\nu} , \gamma_\rho] \).
+Thus, \(\sigma_{\mu\nu}\) are up to a factor
+the generators of the Lorentz group.
+The factor is chosen to be \(\frac{1}{2}\),
+because rotations form a subgroup of the Lorentz group,
+and this factor will reproduce the standard algebra
+for this subgroup.
+</p>
+
+<p>
+The Lorentz group generators are thus:
+$$
+  \Sigma_{\mu\nu}
+  =
+  \frac{1}{2}
+  \sigma_{\mu\nu}
+  =
+  \frac{i}{4}
+  [\gamma_\mu, \gamma_\nu]
+  \,.
+$$
+From the multiplication rules,
+one can work out the following commutation rules,
+which define the Lorentz algebra:
+$$
+  [ \Sigma_{\mu\nu}, \Sigma_{\alpha\beta} ]
+  =
+  i
+  \Big(
+  g_{\mu\beta}
+  \Sigma_{\nu\alpha}
+  +
+  g_{\nu\alpha}
+  \Sigma_{\mu\beta}
+  -
+  g_{\mu\alpha}
+  \Sigma_{\nu\beta}
+  -
+  g_{\nu\beta}
+  \Sigma_{\mu\alpha}
+  \Big)
+  \,.
+$$
+There are six Lorentz group generators,
+since there are six bivectors,
+making the Lorentz group six-dimensional.
+</p>
+
+<p>
+The Lorentz group generators can be broken up into rotation generators
+and boost generators,
+depending on whether they transform \(\gamma_0\).
+The rotation generators leave \(\gamma_0\) alone,
+and are thus effectively just transformations on space.
+The rotation generators are given by
+$$
+  J_a
+  =
+  \frac{1}{2}
+  \epsilon_{abc}
+  \Sigma_{bc}
+  \,,
+$$
+where the Latin indices range only over spatial components (1,2,3).
+You can work out from the general Lorentz algebra commutation rule that
+$$
+  [J_a, J_b]
+  =
+  i
+  \epsilon_{abc} J_c
+$$
+as expected.
+The boost generators are then defined as
+$$
+  K_a
+  =
+  \Sigma_{a0}
+  \,,
+$$
+and you can work out from the general Lorentz algebra rule that
+$$
+\displaylines{
+  [K_a, K_b]
+  =
+  -
+  i
+  \epsilon_{abc} J_c
+  \\
+  [J_a, K_b]
+  =
+  i
+  \epsilon_{abc} K_c
+  \,.
+}
+$$
+This completes the derivation of the Lorentz algebra through
+the 4D Clifford algebra.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h3 id="PT">Parity and time reversal</h3>
+
+<p>
+Though I've already completed the main point of the post,
+this little epilogue will address the discrete transformations—parity
+and time reversal—that can't be achieved by compounding
+transformations arbitrarily close to identity.
+Parity in the 4D Clifford algebra is nice.
+The fact that \(\gamma_0^2 = 1\) and that \(\gamma_0\) anticommutes
+with the other basis vectors actually makes two-sided multiplication
+by \(\gamma_0\) a perfect parity transformation:
+$$
+  P(x)
+  =
+  \gamma_0 x \gamma_0
+  \,.
+$$
+This flips the sign of any Clifford basis element with an odd number
+of spatial indices.
+Since \(\gamma_0^2 = 1\),
+\(\gamma_0\) is its own inverse and the parity transformation falls
+into the same \(x \mapsto LxL^{-1}\) pattern as the continuous
+Lorentz transformations.
+</p>
+
+<p>
+Time reversal, like parity in the 3D Clifford algebra,
+requires complex conjugation,
+and thus picking out a matrix representation for the Clifford algebra.
+</p>
+
+<p>
+There are multiple matrix representations of the 4D Clifford algebra
+in common use.
+The appendix of Itzykson and Zuber lists three:
+The Dirac representation, the chiral representation,
+and the Majorana representation.
+My preferred representation is the chiral representation,
+for reasons I'll probably explore in a future blog post.
+(In short: it comes out naturally from taking the direct sum of
+fundamental representations of two inequivalent defining representations of
+\(\mathrm{SL}(2,\mathbb{C})\), which is the universal cover
+of the part of the Lorentz group connected to identity.)
+</p>
+
+<p>
+In the chiral representation, the basis vectors take the form
+$$
+  \gamma_0
+  =
+  \begin{bmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{bmatrix}
+  \,,
+  \qquad
+  \gamma_a
+  =
+  \begin{bmatrix}
+    0 & \sigma_a \\
+    -\sigma_a & 0
+  \end{bmatrix}
+  \,,
+$$
+where I'm using block matrix notation.
+The Pauli matrices \(\sigma_a\) are \(2\times 2\) matrices,
+each \(0\) above is a \(2\times2\) matrix with all 0s for components,
+and \(1\) signifies a \(2\times2\) identity matrix.
+</p>
+
+<p>
+In the chiral representation, complex conjugation flips the sign of
+\(\gamma_2\), but leaves the other basis vectors unchanged.
+Time reversal, however, should be an operation that flips only the sign
+of \(\gamma_0\).
+We can get creative here by combining basis vectors to build an operator.
+\(\gamma_0 \gamma_2\) is its own inverse, and it's straightforward to check
+(using the basic anticommutation rule) that:
+$$
+\displaylines{
+  (\gamma_0 \gamma_2) \gamma_0 (\gamma_0 \gamma_2)
+  =
+  -
+  \gamma_0
+  \\
+  (\gamma_0 \gamma_2) \gamma_1 (\gamma_0 \gamma_2)
+  =
+  \gamma_1
+  \\
+  (\gamma_0 \gamma_2) \gamma_2 (\gamma_0 \gamma_2)
+  =
+  -
+  \gamma_2
+  \\
+  (\gamma_0 \gamma_2) \gamma_3 (\gamma_0 \gamma_2)
+  =
+  \gamma_3
+  \,,
+}
+$$
+so composing two-sided multiplication by \(\gamma_0\gamma_2\)
+with complex conjugation achieves the desired result:
+$$
+  T(x)
+  =
+  \gamma_0 \gamma_2 x^* \gamma_0 \gamma_2
+  \,.
+$$
+And the composition \(PT\) will then be:
+$$
+  PT(x)
+  =
+  -
+  \gamma_2 x^* \gamma_2
+  \,,
+$$
+which will flip the signs of all the basis vectors.
+The action of time reversal and \(PT\) on the bivectors,
+trivectors and quadvector will be a bit peculiar because
+of the factors \(i\) introduced into their conventional definitions.
+Time reversal is a <b>antilinear transformation</b>,
+meaning it modifies the usual rule for linearity by taking the complex
+conjugates of any scalar coefficients:
+$$
+  T(ax + by)
+  =
+  a^* T(x)
+  +
+  b^* T(y)
+  \,.
+$$
+This is just something we need to be mindful of when building
+physical quantities out of the Clifford algebra.
+</p>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<h2 id="bib">Further reading</h2>
+
+<h3>Books</h3>
+
+<ul>
+  <li>Jean-Bernard Zuber and Claude Itzykson,
+    <a
+        href="https://www.google.com/books/edition/Quantum_Field_Theory/CxYCMNrUnTEC"
+        ><i>Quantum Field Theory</i></a></li>
+  <li>James D. Bjorken and Sidney D. Drell,
+    <i>Relativistic Quantum Fields</i>
+  </li>
+</ul>
+
+<h3>YouTube videos</h3>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=2AKt6adG_OI">sudgylacmoe:
+      An Overview of the Operations in Geometric Algebra</a></li>
+  <li><a href="https://www.youtube.com/watch?v=htYh-Tq7ZBI">Freya Holmér:
+      Why can't you multiply vectors?</a> (video about geometric algebra)</li>
+</ul>

@@ -24,7 +24,7 @@ a:hover {
 /* Overall layout */
 
 .wrapper {
-  position: relative;
+  position: absolute;
   float: center;
   width: 97%;
   display: flex;
@@ -35,6 +35,7 @@ a:hover {
   position: relative;
 }
 
+/*
 .foot {
   float: bottom;
   text-align: center;
@@ -42,6 +43,7 @@ a:hover {
   width: 98.5%;
   font-size: 14pt;
 }
+*/
 
 /* Navigation bar */
 
@@ -54,19 +56,10 @@ a:hover {
 
 .navbar ul {
   list-style-type: "\1F338";
-  margin:  17px;
+  margin-top:  3px;
+  margin-left: 22px;
   padding: 1px;
 }
-
-/*
-.navbar a {
-  color: #006900;
-}
-
-.navbar a:hover {
-  color: #920092;
-}
-*/
 
 a.navheader {
   display: block;
@@ -90,8 +83,8 @@ a:hover.navheader {
 
 .content {
   background-color: rgba(255, 255, 255, 0.69);
-  left:  1.5%;
-  right: 17px;
+  left:  1%;
+  right: 11px;
   float: none;
   flex-grow: 100;
   padding: 1em;
@@ -99,6 +92,8 @@ a:hover.navheader {
 
 .content p {
   text-indent: 1em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 .content a {
@@ -129,4 +124,54 @@ ul.outline {
   list-style-type: "\1F338";
   margin-left: 34px;
   margin-top:   0px;
+}
+
+/* Stuff for previews */
+
+.block {
+  width: 100%;
+  float: left;
+  display: block;
+  padding-top: 11px;
+}
+
+.heading {
+  width: 99%;
+  float: left;
+  display: block;
+  background-color: #006900;
+  border-radius: 7px;
+  color: #aaddaa;
+  padding: 6px;
+}
+
+.heading a {
+  color: #ffffff;
+}
+
+.heading a:hover {
+  color: #ddaadd;
+}
+
+.title {
+  float: left;
+  position: relative;
+  display: flex;
+  font-size: 15pt;
+}
+
+.date {
+  float: right;
+  position: relative;
+  display: flex;
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+.contentpreview {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 22px;
+  padding-bottom: 11px;
+  width: 100%;
 }

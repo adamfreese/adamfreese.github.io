@@ -22,26 +22,26 @@ Previews of the latest pages can be found below.
 {% assign collections = site.posts | sort: "date" | reverse %}
 {% for posts in collections limit:4 %}
 
-<hr/>
-
 <!-- layout in one column: only one card -->
 <div class="col">
 
   <!-- layout within one card -->
   <div class="block">
 
-    <!-- date in the header -->
-    <div class="date">{{ posts.date | date: "%B %d, %Y" }}</div>
-
-    <!-- title -->
     <div class="heading">
-      <a href="{{ posts.url }}">{{ posts.title }}</a>
+      <!-- title -->
+      <div class="title">
+        <a href="{{ posts.url }}">{{ posts.title }}</a>
+      </div>
+      <!-- date in the header -->
+      <div class="date">{{ posts.date | date: "%B %d, %Y" }}</div>
     </div>
 
     <!-- excerpt -->
     <div class="contentpreview">
-      {{ posts.content | truncatewords: 420 }}
-      <a href="{{ posts.url }}"> &lt;open&gt; </a>
+      {{ posts.excerpt }}
+      <br/>
+      <a href="{{ posts.url }}">(continue reading)</a>
     </div>
 
   </div>

@@ -2,14 +2,15 @@
 
 body {
   background-color: #ffffff;
-  background-image: url("sakura.jpg");
-  background-attachment: fixed;
+  background-image: url("pentatile.jpg");
+  background-repeat: repeat;
+  background-attachment: scroll;
   font-family: DejaVuSerif, Edwin Roman, serif;
   font-size: 13pt;
 }
 
 a {
-  color: #006900;
+  color: #003192;
   font-weight: bold;
   text-decoration: none;
 }
@@ -36,7 +37,7 @@ a:hover {
 .foot {
   float: bottom;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.69);
   width: 98.5%;
   font-size: 14pt;
 }
@@ -46,7 +47,7 @@ a:hover {
 .navbar  {
   min-width: 300px;
   left: 0%;
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.69);
   /*flex-grow: 1;*/
 }
 
@@ -54,6 +55,14 @@ a:hover {
   list-style-type: "\1F338";
   margin:  17px;
   padding: 1px;
+}
+
+.navbar a {
+  color: #006900;
+}
+
+.navbar a:hover {
+  color: #920092;
 }
 
 a.navheader {
@@ -77,7 +86,7 @@ a:hover.navheader {
 /* Content */
 
 .content {
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(255, 255, 255, 0.69);
   left:  1.5%;
   right: 17px;
   float: none;

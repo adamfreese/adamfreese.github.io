@@ -33,6 +33,8 @@ a:hover {
 .navbar, .content {
   float: left;
   position: relative;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.69);
 }
 
 /*
@@ -50,8 +52,7 @@ a:hover {
 .navbar  {
   min-width: 300px;
   left: 0%;
-  background-color: rgba(255, 255, 255, 0.69);
-  /*flex-grow: 1;*/
+  padding: 1px;
 }
 
 .navbar ul {
@@ -63,6 +64,7 @@ a:hover {
 
 a.navheader {
   display: block;
+  border-radius: 7px;
   background: #006900;
   color: #ffffff;
   text-align: center;
@@ -82,12 +84,11 @@ a:hover.navheader {
 /* Content */
 
 .content {
-  background-color: rgba(255, 255, 255, 0.69);
   left:  1%;
   right: 11px;
   float: none;
   flex-grow: 100;
-  padding: 1em;
+  padding: 11px;
 }
 
 .content p {
@@ -132,11 +133,15 @@ ul.outline {
   width: 100%;
   float: left;
   display: block;
-  padding-top: 11px;
+  margin-top: 11px;
+  margin-left: 0px;
+  border-radius: 12px;
+  padding: 2px;
+  background-color: rgba(22,76,22,0.11);
 }
 
 .heading {
-  width: 99%;
+  width: 98%;
   float: left;
   display: block;
   background-color: #006900;
